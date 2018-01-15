@@ -14,9 +14,11 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.0",
     "mysql": "^2.15.0",
-    "pg": "^7.4.1",
+    "pg": "^6.4.2",
     "pg-connect": "^2.0.2",
+    "pg-hstore": "^2.3.2",
     "pg-promise": "^7.3.3",
+    "sequelize": "^4.31.2",
     "serve-favicon": "~2.4.5"
   }
 }

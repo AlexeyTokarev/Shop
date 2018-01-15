@@ -1,53 +1,29 @@
-const pgp = require('pg-promise')(/*options*/);
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize('postgres://postgres@localhost:5432/postgres');
 
-const cn = 'postgres://postgres@localhost/postgres';
+sequelize
+    .authenticate()
+    .then(() => {
+        console.log('Connection has been established successfully.');
+    })
+    .catch(err => {
+        console.error('Unable to connect to the database:', err);
+    });
 
-const db = pgp(cn); // database instance;
+const User = sequelize.define('user', {
+    firstName: {
+        type: Sequelize.STRING
+    },
+    lastName: {
+        type: Sequelize.STRING
+    }
+});
 
-function selectById(id) {
-    // select and return user name from id:
-    db.one(`SELECT name FROM production WHERE id = ${id}`)
-        .then(user => {
-            console.log(user.name); // print user name;
-        })
-        .catch(error => {
-            console.log(error); // print the error;
-        });
-}
-
-function countOfProducts() {
-    // select and return user name from id:
-    db.one('SELECT COUNT(*) FROM production')
-        .then(user => {
-            console.log(user.count); // print user name;
-
-        })
-        .catch(error => {
-            console.log(error); // print the error;
-        });
-}
-
-countOfProducts();
-
-
-// const pg = require('pg');
-// const conString = "postgres://postgres@localhost/postgres";
-//
-// const client = new pg.Client(conString);
-// client.connect();
-//
-// const query = client.query("SELECT * FROM production");
-// console.log(query);
-
-// var Promise = require('bluebird');
-// var getConnection = require('pg-connect')("postgres://postgres@localhost/postgres");
-//
-// Promise.using(
-//     getConnection(),
-//     function (query) {
-//         return query('SELECT * from production')
-//     }
-// ).
-// then(function (results) {
-//     console.log(results.rows[0].id);
-// });
+// force: true will drop the table if it already exists
+User.sync({force: true}).then(() => {
+    // Table created
+    return User.create({
+        firstName: 'John',
+        lastName: 'Hancock'
+    });
+});

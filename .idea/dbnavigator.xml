@@ -24,11 +24,7 @@
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
     <loaded-nodes>
-      <connection connection-id="50b2d77b-8c35-4f74-8ec4-bfdca8de6c33">
-        <schema name="public" object-types="function, sequence, table, view" />
-      </connection>
       <connection connection-id="cca880fa-0ab0-4577-bbcc-a85427b4626d">
-        <schema name="pg_catalog" object-types="function" />
         <schema name="public" object-types="column, constraint, function, index, sequence, table, dataset trigger, view" />
       </connection>
     </loaded-nodes>
