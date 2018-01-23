@@ -75,18 +75,17 @@ const Good = sequelize.define('good', {
     },
     typeOfGood: {
         type: Sequelize.STRING
-        // references: {
-        //     model: 'goodTypes',
-        //     key: 'id'
-        // }
     },
     count: {
         type: Sequelize.INTEGER
     }
 });
-// Модель сущности типа товара
-const GoodType = sequelize.define('goodType', {
-    goodType: {
+// Модель сущности контента веб-сайта
+const Content = sequelize.define('content', {
+    text: {
+        type: Sequelize.STRING
+    },
+    images: {
         type: Sequelize.STRING
     }
 });
@@ -99,7 +98,7 @@ sequelize
         Role.sync({force: force});
         Basket.sync({force: force});
         Good.sync({force: force});
-        GoodType.sync({force: force});
+        Content.sync({force:force});
     })
     .catch(err => {
         console.error('Unable to connect to the database:', err);
@@ -110,5 +109,5 @@ module.exports = {
     Role: Role,
     Basket: Basket,
     Good: Good,
-    GoodType: GoodType
+    Content: Content
 };

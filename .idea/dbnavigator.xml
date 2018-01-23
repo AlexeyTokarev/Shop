@@ -42,11 +42,17 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-list connection-id="cca880fa-0ab0-4577-bbcc-a85427b4626d" dataset="public.production" active-filter-id="">
+    <filter-list connection-id="cca880fa-0ab0-4577-bbcc-a85427b4626d" dataset="public.users" active-filter-id="EMPTY_FILTER" />
+    <filter-list connection-id="cca880fa-0ab0-4577-bbcc-a85427b4626d" dataset="public.useroks" active-filter-id="EMPTY_FILTER" />
+    <filter-list connection-id="cca880fa-0ab0-4577-bbcc-a85427b4626d" dataset="public.baskets" active-filter-id="EMPTY_FILTER" />
+    <filter-list connection-id="cca880fa-0ab0-4577-bbcc-a85427b4626d" dataset="public.contents" active-filter-id="EMPTY_FILTER" />
+    <filter-list connection-id="cca880fa-0ab0-4577-bbcc-a85427b4626d" dataset="public.goods" active-filter-id="EMPTY_FILTER" />
+    <filter-list connection-id="cca880fa-0ab0-4577-bbcc-a85427b4626d" dataset="public.production" active-filter-id="EMPTY_FILTER">
       <filter id="e4d29e3c-919e-41da-90fc-d659e1adb51e" name="Filter 1" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="id" operator="=" value="" active="true" />
       </filter>
     </filter-list>
+    <filter-list connection-id="cca880fa-0ab0-4577-bbcc-a85427b4626d" dataset="public.roles" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
