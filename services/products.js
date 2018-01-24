@@ -1,15 +1,27 @@
 'use strict';
+
+const Product = require('./../controllers/good');
+
 module.exports = {
     // Добавление продукта
-    addProduct: () => {},
+    addProduct: async () => {
+        let name, ram, memory, color, price, typeOfGood, count;
+        let product = await Product.addProduct(name, ram, memory, color, price, typeOfGood, count);
+        console.log(product);
+    },
     // Удаление продукта
-    deleteProduct: () => {},
+    deleteProduct: () => {
+    },
     // Редактирование продукта
-    editProduct: () => {},
+    editProduct: () => {
+    },
     // Получение продукта
-    getProduct: () => {},
+    getProduct: () => {
+    },
     // Получение списка продуктов
-    getProductsList: () => {},
+    getProductsList: () => {
+    },
     // Изменение типа продукта
-    changeProductType: () => {}
+    changeProductType: () => {
+    }
 };

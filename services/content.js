@@ -1,15 +1,27 @@
 'use strict';
+
+const Content = require('./../controllers/content');
+
 module.exports = {
     // Добавление контент-текста
-    addContentText: () => {},
+    addContentText: async () => {
+        let text;
+        let content = Content.addContentText(text);
+        console.log(content);
+    },
     // Удаление контент-текста
-    deleteContentText: () => {},
+    deleteContentText: () => {
+    },
     // Редактирование контент-текста
-    editContentText: () => {},
+    editContentText: () => {
+    },
     // Добавление контент-фото
-    addContentPhoto: () => {},
+    addContentPhoto: () => {
+    },
     // Удаление контент-фото
-    deleteContentPhoto: () => {},
+    deleteContentPhoto: () => {
+    },
     // Изменение контент-фото
-    changeContentPhoto: () => {}
+    changeContentPhoto: () => {
+    }
 };
