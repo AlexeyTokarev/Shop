@@ -7,20 +7,28 @@ module.exports = {
     // Создание аккаунта
     createAccount: async () => {
         let name, surname, email, login, password, role;
-        let user = await User.createAccount(name, surname, email, login, password, role);
-        console.log(user);
+        const result = await User.createAccount(name, surname, email, login, password, role);
+        console.log(result);
     },
     // Удаление аккаунта
-    deleteAccount: () => {
+    deleteAccount: async () => {
     },
     // Редактирование аккаунта
-    editAccount: () => {
+    editAccount: async (id, data) => {
+        return {
+            changeName: async () => {},
+            changeSurname: async () => {},
+            changeEmail: async () => {},
+            changeLogin: async () => {},
+            changePassword: async () => {},
+            changeRole: async () => {}
+        }
     },
     // Получение информации об аккаунте
-    getAccountById: () => {
+    getAccountById: async () => {
     },
     // Получени списка аккаунтов
-    getAccountsList: () => {
+    getAccountsList: async () => {
     },
     // Создаем новую роль пользователя
     createRole: async () => {
