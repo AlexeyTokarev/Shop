@@ -1,34 +1,34 @@
-const {User, Role, Basket, Good, Content} = require('../db');
+const {User, Role, Basket, Good, Content, Image} = require('../db');
 
 module.exports = {
     // Добавление контент-текста
-    addContentText: async (text) => {
-        let content = await Content.create({
+    addContentText: async text => {
+        const result = await Content.create({
             text: text
         });
-        if (!content) {
+        if (!result) {
             console.log('Ошибка при добавлении контента в контроллере');
             return;
         }
-        return content;
+        return result;
     },
     // Удаление контент-текста
-    deleteContentText: () => {
+    deleteContentText: async id => {
+        const result = await Content.destroy({where: {id: id}});
+        if (!result && result === 0) {
+            return new Error('Ошибка при удалении контента');
+        }
+        return result;
     },
     // Редактирование контент-текста
-    editContentText: () => {
-    },
-    // Добавление контент-фото
-    addContentPhoto: () => {
-    },
-    // Удаление контент-фото
-    deleteContentPhoto: () => {
-    },
-    // Изменение контент-фото
-    changeContentPhoto: () => {
+    editContentText: async (id, text) => {
+        const result = await Content.update(
+            {text: text},
+            {where: {id: id}}
+        );
+        if (!result && result === 0) {
+            return new Error('Ошибка при редактировании контент-текста');
+        }
+        return result;
     }
 };
-
-Content.create({
-    text: 'пока!!!'
-});

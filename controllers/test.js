@@ -1,4 +1,4 @@
-const {User, Role, Basket, Good, Content} = require('../db');
+const {User, Role, Basket, Good, Content, Image} = require('../db');
 
 // Добавление тестового пользователя в таблицу
 User.create({
@@ -36,4 +36,9 @@ Basket.create({
 // Добавление тестового контента в таблицу
 Content.create({
     text: 'testContent'
+});
+
+// Добавление тестового контента в таблицу
+Image.create({
+    imageUrl: 'testContent'
 });

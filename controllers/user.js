@@ -1,9 +1,9 @@
-const {User, Role, Basket, Good, Content} = require('../db');
+const {User, Role, Basket, Good, Content, Image} = require('../db');
 
 module.exports = {
     // Создание аккаунта
     createAccount: async (name, surname, email, login, password, role) => {
-        let user = await User.create({
+        const result = await User.create({
             name: name,
             surname: surname,
             email: email,
@@ -11,46 +11,100 @@ module.exports = {
             password: password,
             role: role
         });
-        if (!user) {
+        if (!result) {
             console.log('Ошибка создания пользователя в слое сервисов');
             return;
         }
-        return user;
+        return result;
     },
     // Удаление аккаунта
-    deleteAccount: async () => {
+    deleteAccount: async id => {
+        const result = await User.destroy({where: {id: id}});
+        if (!result && result === 0) {
+            return new Error('Ошибка при удалении аккаунта');
+        }
+        return result;
     },
-    // Редактирование аккаунта
-    editAccount: async () => {
+    // Изменение имени
+    changeName: async (id, name) => {
+        const result = await User.update(
+            {name: name},
+            {where: {id: id}}
+        );
+        if (!result && result === 0) {
+            return new Error('Ошибка при редактировании аккаунта');
+        }
+        return result;
+    },
+    // Изменение фамилии
+    changeSurname: async (id, surname) => {
+        const result = await User.update(
+            {surname: surname},
+            {where: {id: id}}
+        );
+        if (!result && result === 0) {
+            return new Error('Ошибка при редактировании аккаунта');
+        }
+        return result;
+    },
+    // Изменение email
+    changeEmail: async (id, email) => {
+        const result = await User.update(
+            {email: email},
+            {where: {id: id}}
+        );
+        if (!result && result === 0) {
+            return new Error('Ошибка при редактировании аккаунта');
+        }
+        return result;
+    },
+    // Изменение логина
+    changeLogin: async (id, login) => {
+        const result = await User.update(
+            {login: login},
+            {where: {id: id}}
+        );
+        if (!result && result === 0) {
+            return new Error('Ошибка при редактировании аккаунта');
+        }
+        return result;
     },
     // Изменение пароля
-    changePassword: async () => {
-    },
-    // Добавление фотографии
-    addPhoto: async () => {
-    },
-    // Удаление фотографии
-    deletePhoto: async () => {
-    },
-    // Изменение фотографии
-    changePhoto: async () => {
+    changePassword: async (id, password) => {
+        const result = await User.update(
+            {password: password},
+            {where: {id: id}}
+        );
+        if (!result && result === 0) {
+            return new Error('Ошибка при редактировании аккаунта');
+        }
+        return result;
     },
     // Изменение роли пользователя
-    changeRole: async () => {
+    changeRole: async (id, role) => {
+        const result = await User.update(
+            {role: role},
+            {where: {id: id}}
+        );
+        if (!result && result === 0) {
+            return new Error('Ошибка при редактировании аккаунта');
+        }
+        return result;
     },
     // Получение информации об аккаунте
-    getAccount: async () => {
+    getAccountById: async id => {
+        const result = await User.findOne({where: {id: id}});
+        if (!result) {
+            return new Error('Ошибка при получении аккаунта по id');
+        }
+        return result;
     },
     // Получени списка аккаунтов
     getAccountsList: async () => {
+        const result = await User.findAll();
+        if (!result) {
+            return new Error('Ошибка при получении списка аккаунтов');
+        }
+        return result;
     }
 };
-
-User.create({
-    name: 'Алексей',
-    surname: 'Иванов',
-    email: 'trololo@gmail.com',
-    login: 'myLogin',
-    password: 'myPassword',
-    role: 1
-});

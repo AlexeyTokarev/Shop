@@ -1,27 +1,25 @@
-const {User, Role, Basket, Good, Content} = require('../db');
+const {User, Role, Basket, Good, Content, Image} = require('../db');
 
 module.exports = {
     // Добавление товара в корзину
     addToBasket: async (good, count, user) => {
-        let basket = await Basket.create({
+        const result = await Basket.create({
             good: good,
             count: count,
             user: user
         });
-        if (!basket) {
+        if (!result) {
             console.log('Ошибка при добавлении товара в корзину в контроллере');
             return;
         }
-        return basket;
+        return result;
     },
     // Удаление товара из корзины
-    removeFromBasket: () => {
+    removeFromBasket: async id => {
+        const result = await Basket.destroy({where: {id: id}});
+        if (!result && result === 0) {
+            return new Error('Ошибка при удалении товара из корзины');
+        }
+        return result;
     }
 };
-
-
-Basket.create({
-    good: 1,
-    count: 1,
-    user: 1
-});

@@ -25,6 +25,7 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="cca880fa-0ab0-4577-bbcc-a85427b4626d">
+        <schema name="pg_catalog" object-types="function" />
         <schema name="public" object-types="column, constraint, function, index, sequence, table, dataset trigger, view" />
       </connection>
     </loaded-nodes>
@@ -43,6 +44,7 @@
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-list connection-id="cca880fa-0ab0-4577-bbcc-a85427b4626d" dataset="public.users" active-filter-id="EMPTY_FILTER" />
+    <filter-list connection-id="cca880fa-0ab0-4577-bbcc-a85427b4626d" dataset="public.images" active-filter-id="EMPTY_FILTER" />
     <filter-list connection-id="cca880fa-0ab0-4577-bbcc-a85427b4626d" dataset="public.useroks" active-filter-id="EMPTY_FILTER" />
     <filter-list connection-id="cca880fa-0ab0-4577-bbcc-a85427b4626d" dataset="public.baskets" active-filter-id="EMPTY_FILTER" />
     <filter-list connection-id="cca880fa-0ab0-4577-bbcc-a85427b4626d" dataset="public.contents" active-filter-id="EMPTY_FILTER" />

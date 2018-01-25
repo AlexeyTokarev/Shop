@@ -8,6 +8,7 @@ let Role = require('./roles')(db);
 let Basket = require('./basket')(db);
 let Good = require('./goods')(db);
 let Content = require('./content')(db);
+let Image = require('./image')(db);
 // // Модель сущности пользователя
 // const User = db.define('user', {
 //     name: {
@@ -104,6 +105,7 @@ db.authenticate()
         Basket.sync({force: force});
         Good.sync({force: force});
         Content.sync({force: force});
+        Image.sync({force: force});
     })
     .catch(err => {
         console.error('Unable to connect to the database:', err);
@@ -114,5 +116,6 @@ module.exports = {
     Role: Role,
     Basket: Basket,
     Good: Good,
-    Content: Content
+    Content: Content,
+    Image: Image
 };

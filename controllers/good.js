@@ -1,4 +1,4 @@
-const {User, Role, Basket, Good, Content} = require('../db');
+const {User, Role, Basket, Good, Content, Image} = require('../db');
 
 module.exports = {
     // Добавление продукта
@@ -19,28 +19,115 @@ module.exports = {
         return product;
     },
     // Удаление продукта
-    deleteProduct: () => {
-    },
-    // Редактирование продукта
-    editProduct: () => {
+    deleteProduct: async id => {
+        const result = await Good.destroy({where: {id: id}});
+        if (!result && result === 0) {
+            return new Error('Ошибка при удалении продукта');
+        }
+        return result;
     },
     // Получение продукта
-    getProduct: () => {
+    getProductById: async id => {
+        const result = await Good.findOne({where: {id: id}});
+        if (!result) {
+            return new Error('Ошибка при получении продукта по id');
+        }
+        return result;
     },
     // Получение списка продуктов
-    getProductsList: () => {
+    getProductsList: async () => {
+        const result = await Good.findAll();
+        if (!result) {
+            return new Error('Ошибка при получении списка продуктов');
+        }
+        return result;
+    },
+    // Изменение имени продукта
+    changeName: async (id, name) => {
+        const result = await Good.update(
+            {name: name},
+            {where: {id: id}}
+        );
+        if (!result && result === 0) {
+            return new Error('Ошибка при редактировании продукта');
+        }
+        return result;
+    },
+    // Изменение объем RAM продукта
+    changeRam: async (id, ram) => {
+        const result = await Good.update(
+            {ram: ram},
+            {where: {id: id}}
+        );
+        if (!result && result === 0) {
+            return new Error('Ошибка при редактировании продукта');
+        }
+        return result;
+    },
+    // Изменение объем памяти продукта
+    changeMemory: async (id, memory) => {
+        const result = await Good.update(
+            {memory: memory},
+            {where: {id: id}}
+        );
+        if (!result && result === 0) {
+            return new Error('Ошибка при редактировании продукта');
+        }
+        return result;
+    },
+    // Изменение цвета продукта
+    changeColor: async (id, color) => {
+        const result = await Good.update(
+            {color: color},
+            {where: {id: id}}
+        );
+        if (!result && result === 0) {
+            return new Error('Ошибка при редактировании продукта');
+        }
+        return result;
+    },
+    // Изменение фотографии продукта
+    changePhoto: async (id, photo) => {
+        const result = await Good.update(
+            {photo: photo},
+            {where: {id: id}}
+        );
+        if (!result && result === 0) {
+            return new Error('Ошибка при редактировании продукта');
+        }
+        return result;
+    },
+    // Изменение цены продукта
+    changePrice: async (id, price) => {
+        const result = await Good.update(
+            {price: price},
+            {where: {id: id}}
+        );
+        if (!result && result === 0) {
+            return new Error('Ошибка при редактировании продукта');
+        }
+        return result;
     },
     // Изменение типа продукта
-    changeProductType: () => {
+    changeProductType: async (id, type) => {
+        const result = await Good.update(
+            {typeOfGood: type},
+            {where: {id: id}}
+        );
+        if (!result && result === 0) {
+            return new Error('Ошибка при редактировании продукта');
+        }
+        return result;
+    },
+    // Изменение количества продукта
+    changeCount: async (id, count) => {
+        const result = await Good.update(
+            {count: count},
+            {where: {id: id}}
+        );
+        if (!result && result === 0) {
+            return new Error('Ошибка при редактировании продукта');
+        }
+        return result;
     }
 };
-
-Good.create({
-    name: 'Lenovo',
-    ram: 4,
-    memory: 500,
-    color: 'black',
-    price: 3000,
-    typeOfGood: 'Laptop',
-    count: 10
-});

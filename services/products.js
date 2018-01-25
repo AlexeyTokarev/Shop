@@ -20,8 +20,5 @@ module.exports = {
     },
     // Получение списка продуктов
     getProductsList: () => {
-    },
-    // Изменение типа продукта
-    changeProductType: () => {
     }
 };

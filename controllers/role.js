@@ -1,18 +1,14 @@
-const {User, Role, Basket, Good, Content} = require('../db');
+const {User, Role, Basket, Good, Content, Image} = require('../db');
 
 module.exports = {
-    createRole: async (name) => {
-        let role = await Role.create({
+    createRole: async name => {
+        const result = await Role.create({
             name: name
         });
-        if (!role) {
+        if (!result) {
             console.log('Ошибка при создании новой роли пользователя в контроллере');
             return;
         }
-        return role;
+        return result;
     }
 };
-
-Role.create({
-    name: 'user'
-});
