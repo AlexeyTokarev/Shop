@@ -8,7 +8,7 @@ module.exports = {
         });
         if (!result) {
             console.log('Ошибка при добавлении контента в контроллере');
-            return;
+            return ;
         }
         return result;
     },
